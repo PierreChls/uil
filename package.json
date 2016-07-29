@@ -1,0 +1,19 @@
+{
+  "name": "uil",
+  "version": "0.9.0",
+  "description": "<img src=\"http://lo-th.github.io/uil/images/uil.png\"/> uil v0.9",
+  "main": "build/uil.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugohil/uil.git"
+  },
+  "author": "lo-th",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hugohil/uil/issues"
+  },
+  "homepage": "https://github.com/hugohil/uil#readme"
+}
