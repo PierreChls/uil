@@ -7,7 +7,7 @@ UIL.Gui = function( o ){
     if( o.Tpercent !== undefined ) UIL.P = o.Tpercent;
     if( o.css === undefined ) o.css = '';
 
-    this.height = 20;
+    this.height = 100;
     this.width = o.width || UIL.WIDTH;
     UIL.WIDTH = this.width;
 
@@ -27,13 +27,13 @@ UIL.Gui = function( o ){
 
     this.color = o.color || UIL.COLOR;
     this.bg = o.bg || 'rgba(44,44,44,0.3)';
-    
+
     this.isCenter = o.center || false;
     this.lockwheel = false;
     this.onWheel = false;
     this.isOpen = true;
 
-  
+
 
     this.uis = [];
 
@@ -64,7 +64,7 @@ UIL.Gui = function( o ){
     this.bottom.textContent = 'close';
     this.bottom.name = 'bottom';
     this.bottom.style.background = this.bg;
-    
+
     this.isDown = false;
     this.isScroll = false;
 
@@ -78,7 +78,7 @@ UIL.Gui = function( o ){
     //this.content.addEventListener( 'mousewheel', this, false );
 
     document.addEventListener( 'mousewheel', this, false );
-    
+
     window.addEventListener("resize", function(e){this.resize(e)}.bind(this), false );
 
     this.setWidth();
@@ -154,7 +154,7 @@ UIL.Gui.prototype = {
             this.bottom.textContent = this.isOpen ? 'close' : 'open';
             this.testHeight();
         }
-        
+
     },
 
     move: function( e ){
@@ -165,7 +165,7 @@ UIL.Gui.prototype = {
 
     },
 
-    
+
 
     out: function( e ){
 
@@ -238,7 +238,7 @@ UIL.Gui.prototype = {
 
         var a = arguments;
 
-        if( typeof a[1] === 'object' ){ 
+        if( typeof a[1] === 'object' ){
             a[1].isUI = true;
             a[1].main = this;
         } else if( typeof a[1] === 'string' ){
@@ -247,7 +247,7 @@ UIL.Gui.prototype = {
                 a[2].isUI = true;
                 a[2].main = this;
             }
-        } 
+        }
 
 
         var n = UIL.add.apply( this, a );
@@ -272,21 +272,21 @@ UIL.Gui.prototype = {
 
     // remove one node
 
-    remove: function ( n ) { 
+    remove: function ( n ) {
 
-        var i = this.uis.indexOf( n ); 
+        var i = this.uis.indexOf( n );
         if ( i !== -1 ) this.uis[i].clear();
 
     },
 
     // call after uis clear
 
-    clearOne: function ( n ) { 
+    clearOne: function ( n ) {
 
-        var i = this.uis.indexOf( n ); 
+        var i = this.uis.indexOf( n );
         if ( i !== -1 ) {
             this.inner.removeChild( this.uis[i].c[0] );
-            this.uis.splice( i, 1 ); 
+            this.uis.splice( i, 1 );
         }
 
     },

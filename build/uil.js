@@ -1,4 +1,4 @@
-/**   _   _____ _   _   
+/**   _   _____ _   _
 *    | | |_   _| |_| |
 *    | |_ _| | |  _  |
 *    |___|_|_| |_| |_| 2016
@@ -60,8 +60,8 @@ var UMC = UMC || ( function () {
 
             if ( dom.firstChild.firstChild ) UMC.clear( dom.firstChild );
 
-            dom.removeChild( dom.firstChild ); 
-            
+            dom.removeChild( dom.firstChild );
+
         }
 
         /*while ( dom.children.length ){
@@ -87,8 +87,8 @@ var UMC = UMC || ( function () {
         a = dom.childNodes;
         if (a) {
             i = a.length;
-            while(i--){ 
-                UMC.purge(dom.childNodes[i]); 
+            while(i--){
+                UMC.purge(dom.childNodes[i]);
             }
         }
     };
@@ -105,7 +105,7 @@ var UMC = UMC || ( function () {
             if( dom === undefined ) dom = doc.createElementNS( svgns, 'svg' );
 
             UMC.add( dom, type, obj, id );
-            
+
         } else { // is html element
 
             if( dom === undefined ) dom = doc.createElementNS( htmls, type );//doc.createElement( type );
@@ -114,13 +114,13 @@ var UMC = UMC || ( function () {
         }
 
         if( Class ){
-            if(Class === 'UIL') css = BASIC + css; 
+            if(Class === 'UIL') css = BASIC + css;
             else if(Class === 'UIL text') css = TXT + css;
-            else if(Class === 'UIL textSelect') css = TXTEDITE + css; 
-            else if(Class === 'UIL number') css = NUMBER + css; 
+            else if(Class === 'UIL textSelect') css = TXTEDITE + css;
+            else if(Class === 'UIL number') css = NUMBER + css;
             else dom.setAttribute( 'class', Class );
         }
-        if( css ) dom.style.cssText = css; 
+        if( css ) dom.style.cssText = css;
 
         if( id === undefined ) return dom;
         else return dom.childNodes[ id || 0 ];
@@ -132,7 +132,7 @@ var UMC = UMC || ( function () {
     UMC.cc = function ( name, rules, noAdd ) {
 
         var adds = noAdd === undefined ? '.' : '';
-        
+
         if( name === '*' ) adds = '';
 
         var style = doc.createElement( 'style' );
@@ -153,9 +153,9 @@ var UMC = UMC || ( function () {
 
     UMC.clone = function ( dom, deep ){
 
-        if(deep===undefined) deep = true; 
+        if(deep===undefined) deep = true;
         return dom.cloneNode(deep);
-    
+
     };
 
     UMC.add = function( dom, type, o, id ){ // add attributes
@@ -177,7 +177,7 @@ var UMC = UMC || ( function () {
             if( att === 'txt' ) g.textContent = o[ att ];
             g.setAttributeNS( null, att, o[ att ] );
         }
-        
+
     };
 
     UMC.get = function( dom, id ){
@@ -215,7 +215,7 @@ var UMC = UMC || ( function () {
             dcopy = content.cloneNode(true);//document.createElement('div');
             dcopy.style.left = 0;
         }
-        
+
 
 
         //var clone = content.cloneNode(true);
@@ -240,7 +240,7 @@ var UMC = UMC || ( function () {
 
 
 
-        
+
         svg.setAttribute("version", "1.1");
         svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg' );
         svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
@@ -255,8 +255,8 @@ var UMC = UMC || ( function () {
         var data = 'data:image/svg+xml;base64,'+ window.btoa((new XMLSerializer).serializeToString(svg));
 
         //var data = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent((new XMLSerializer).serializeToString(svg))))
-        
- 
+
+
         //var s = new XMLSerializer();
         //var data = (new XMLSerializer).serializeToString(svg);
 
@@ -285,11 +285,11 @@ var UMC = UMC || ( function () {
         //var img = new Image();
         //img.width = w;
         //img.height = h;
-        
-        
+
+
         img.src = data;
 
-       
+
         //clearTimeout( tmp );
         tmp = setTimeout(function() {
             ctx.clearRect( 0, 0, w, h );
@@ -299,7 +299,7 @@ var UMC = UMC || ( function () {
         //var blob = new Blob([data], {type: "image/svg+xml;charset=utf-8"});
         //var url = DOMURL.createObjectURL(blob);
         /*img.onload = function() {
-             img.onload = null; 
+             img.onload = null;
             //img.crossOrigin ='anonymous';
             ctx.clearRect( 0, 0, w, h );
             //console.log('done', img.width, img.height)
@@ -315,7 +315,7 @@ var UMC = UMC || ( function () {
 
 
         //document.body.appendChild(canvas);
-    
+
 
 
         //console.log(svg);
@@ -325,7 +325,7 @@ var UMC = UMC || ( function () {
     return UMC;
 
 })();
-/**   _   _____ _   _   
+/**   _   _____ _   _
 *    | | |_   _| |_| |
 *    | |_ _| | |  _  |
 *    |___|_|_| |_| |_| 2016
@@ -394,7 +394,7 @@ var UIL = ( function () {
 
 
     UIL.classDefine = function(){
-            
+
         UIL.CC('UIL', UIL.UNS + ' position:absolute; pointer-events:none; box-sizing:border-box; margin:0; padding:0; border:none; overflow:hidden; background:none;');
 
         UIL.CC('UIL.text', UIL.TXT );
@@ -415,7 +415,7 @@ var UIL = ( function () {
 
         //UIL.CC('UIL.list', 'box-sizing:content-box; border:20px solid transparent; border-bottom:10px solid transparent; left:80px; top:0px;  height:90px; cursor:s-resize; pointer-events:auto; display:none;');
         //UIL.CC('UIL.list-in', 'left:0; top:0; width:100%; background:rgba(0,0,0,0.2); ');
-        
+
 
         //UIL.CC('UIL.scroll-bg', 'right:0; top:0; width:10px; height:10px; cursor:s-resize; pointer-events:auto; display:none;');
         //UIL.CC('UIL.scroll', ' background:#666; right:0; top:0; width:5px; height:10px;');
@@ -425,7 +425,7 @@ var UIL = ( function () {
         //UIL.DEF = true;
     };
 
-    
+
 
     UIL.classDefine();
 
@@ -463,7 +463,7 @@ UIL.add = function(){
 
     var type, o, ref=false;
 
-    if( typeof a[0] === 'string' ){ 
+    if( typeof a[0] === 'string' ){
 
         type = a[0][0].toUpperCase() + a[0].slice(1);
         o = a[1] || {};
@@ -543,20 +543,20 @@ UIL.ColorLuma = function ( hex, lum ) {
 
 };
 
-UIL.findDeepInver = function( rgb ){ 
+UIL.findDeepInver = function( rgb ){
 
     return (rgb[0] * 0.3 + rgb[1] * .59 + rgb[2] * .11) <= 0.6;
-    
+
 };
 
 
-UIL.hexToHtml = function(v){ 
+UIL.hexToHtml = function(v){
     v = v === undefined ? 0x000000 : v;
     return "#" + ("000000" + v.toString(16)).substr(-6);
-    
+
 };
 
-UIL.htmlToHex = function(v){ 
+UIL.htmlToHex = function(v){
 
     return v.toUpperCase().replace("#", "0x");
 
@@ -637,7 +637,7 @@ UIL.Gui = function( o ){
     if( o.Tpercent !== undefined ) UIL.P = o.Tpercent;
     if( o.css === undefined ) o.css = '';
 
-    this.height = 20;
+    this.height = 100;
     this.width = o.width || UIL.WIDTH;
     UIL.WIDTH = this.width;
 
@@ -657,13 +657,13 @@ UIL.Gui = function( o ){
 
     this.color = o.color || UIL.COLOR;
     this.bg = o.bg || 'rgba(44,44,44,0.3)';
-    
+
     this.isCenter = o.center || false;
     this.lockwheel = false;
     this.onWheel = false;
     this.isOpen = true;
 
-  
+
 
     this.uis = [];
 
@@ -694,7 +694,7 @@ UIL.Gui = function( o ){
     this.bottom.textContent = 'close';
     this.bottom.name = 'bottom';
     this.bottom.style.background = this.bg;
-    
+
     this.isDown = false;
     this.isScroll = false;
 
@@ -708,7 +708,7 @@ UIL.Gui = function( o ){
     //this.content.addEventListener( 'mousewheel', this, false );
 
     document.addEventListener( 'mousewheel', this, false );
-    
+
     window.addEventListener("resize", function(e){this.resize(e)}.bind(this), false );
 
     this.setWidth();
@@ -784,7 +784,7 @@ UIL.Gui.prototype = {
             this.bottom.textContent = this.isOpen ? 'close' : 'open';
             this.testHeight();
         }
-        
+
     },
 
     move: function( e ){
@@ -795,7 +795,7 @@ UIL.Gui.prototype = {
 
     },
 
-    
+
 
     out: function( e ){
 
@@ -868,7 +868,7 @@ UIL.Gui.prototype = {
 
         var a = arguments;
 
-        if( typeof a[1] === 'object' ){ 
+        if( typeof a[1] === 'object' ){
             a[1].isUI = true;
             a[1].main = this;
         } else if( typeof a[1] === 'string' ){
@@ -877,7 +877,7 @@ UIL.Gui.prototype = {
                 a[2].isUI = true;
                 a[2].main = this;
             }
-        } 
+        }
 
 
         var n = UIL.add.apply( this, a );
@@ -902,21 +902,21 @@ UIL.Gui.prototype = {
 
     // remove one node
 
-    remove: function ( n ) { 
+    remove: function ( n ) {
 
-        var i = this.uis.indexOf( n ); 
+        var i = this.uis.indexOf( n );
         if ( i !== -1 ) this.uis[i].clear();
 
     },
 
     // call after uis clear
 
-    clearOne: function ( n ) { 
+    clearOne: function ( n ) {
 
-        var i = this.uis.indexOf( n ); 
+        var i = this.uis.indexOf( n );
         if ( i !== -1 ) {
             this.inner.removeChild( this.uis[i].c[0] );
-            this.uis.splice( i, 1 ); 
+            this.uis.splice( i, 1 );
         }
 
     },
@@ -1085,13 +1085,13 @@ UIL.Proto = function( o ){
     // only for number
     this.isNumber = false;
 
-    // only most simple 
+    // only most simple
     this.mono = false;
 
     // stop listening for edite slide text
     this.isEdit = false;
 
-    // no title 
+    // no title
     this.simple = o.simple || false;
 
     // define obj size
@@ -1113,7 +1113,7 @@ UIL.Proto = function( o ){
     if( this.isUI ) h = UIL.HEIGHT;//this.main.height;
     this.h = o.h || o.height || h;
     this.h = this.h < 11 ? 11 : this.h;
-    
+
     this.bgcolor = UIL.COLOR || o.bgcolor;
 
     this.bg = this.isUI ? this.main.bg : 'rgba(44,44,44,0.3)';
@@ -1125,7 +1125,7 @@ UIL.Proto = function( o ){
     this.titleColor = o.titleColor || UIL.BASECOLOR;
     this.fontColor = o.fontColor || UIL.BASECOLOR;
     this.colorPlus = UIL.ColorLuma(this.fontColor, 0.3);
-    
+
 
     this.txt = o.name || 'Proto';
     this.rename = o.rename || '';
@@ -1140,7 +1140,7 @@ UIL.Proto = function( o ){
 
     this.c = [];
 
-    // style 
+    // style
 
     this.s = [];
 
@@ -1149,9 +1149,9 @@ UIL.Proto = function( o ){
     this.s[0] = this.c[0].style;
 
     if( this.isUI ) this.s[0].marginBottom = '1px';
-    
 
-    if( !this.simple ){ 
+
+    if( !this.simple ){
         //this.c[1] = UIL.DOM('UIL text');
         this.c[1] = UIL.DOM(null, 'div', UIL.BASIC + UIL.TXT );
         this.s[1] = this.c[1].style;
@@ -1168,7 +1168,7 @@ UIL.Proto = function( o ){
     }
 
     if(o.css){
-        this.s[0].cssText = o.css; 
+        this.s[0].cssText = o.css;
     }
 
 };
@@ -1205,7 +1205,7 @@ UIL.Proto.prototype = {
         }
 
 
-        if( this.target !== null ){ 
+        if( this.target !== null ){
             this.target.appendChild( this.c[0] );
         } else {
             if( this.isUI ) this.main.inner.appendChild( this.c[0] );
@@ -1258,7 +1258,7 @@ UIL.Proto.prototype = {
     },
 
     update: function( ) {
-        
+
     },
 
     // update every change
@@ -1285,7 +1285,7 @@ UIL.Proto.prototype = {
 
         if( this.parent !== null ) this.parent[ this.val ] = v || this.value;
         if( this.callback ) this.callback( v || this.value );
-        
+
         this.isSend = false;
 
     },
@@ -1297,16 +1297,16 @@ UIL.Proto.prototype = {
 
     },
 
-    
+
 
     // clear node
-    
+
     clear:function(){
 
         this.clearEvent();
         UIL.clear( this.c[0] );
 
-        if( this.target !== null ){ 
+        if( this.target !== null ){
             this.target.removeChild( this.c[0] );
         } else {
             if( this.isUI ) this.main.clearOne( this );//this.main.inner.removeChild( this.c[0] );
@@ -1320,7 +1320,7 @@ UIL.Proto.prototype = {
 
     },
 
-    // change size 
+    // change size
 
     setSize:function( sx ){
 
@@ -1346,7 +1346,7 @@ UIL.Proto.prototype = {
 
         this.s[0].width = this.size + 'px';
         if( !this.simple ) this.s[1].width = this.sa + 'px';
-    
+
     },
 
     // for numeric value
@@ -1380,7 +1380,7 @@ UIL.Proto.prototype = {
         this.range = this.max - this.min;
 
         this.value = this.numValue( this.value );
-        
+
     },
 
     numValue:function( n ){
@@ -1424,7 +1424,7 @@ UIL.Proto.prototype = {
     },
 
     handleEvent: function( e ) {
-        
+
     },
 
     // ----------------------
@@ -1454,7 +1454,7 @@ UIL.Group = function( o ){
     this.isGroup = true;
 
     //this.bg = o.bg || null;
-    
+
 
     //this.h = 25;
     this.baseH = this.h;
@@ -1528,12 +1528,12 @@ UIL.Group.prototype.add = function( ){
 
     var a = arguments;
 
-    if( typeof a[1] === 'object' ){ 
+    if( typeof a[1] === 'object' ){
         a[1].isUI = this.isUI;
         a[1].target = this.c[2];
     } else if( typeof arguments[1] === 'string' ){
         if( a[2] === undefined ) [].push.call(a, { isUI:true, target:this.c[2] });
-        else{ 
+        else{
             a[2].isUI = true;
             a[2].target = this.c[2];
         }
@@ -1593,7 +1593,7 @@ UIL.Group.prototype.clearGroup = function(){
     //this.s[0].height = this.h + 'px';
     //this.s[2].height = 0;
 
-    
+
 
 
     //this.calc();
@@ -1606,7 +1606,7 @@ UIL.Group.prototype.calc = function( y ){
 
     //this.h = this.baseH;
 
-    if( y !== undefined ){ 
+    if( y !== undefined ){
         this.h += y;
         if( this.isUI ) this.main.calc( y );
 
@@ -1647,7 +1647,7 @@ UIL.Group.prototype.rSize = function(){
 
 };
 UIL.Title = function( o ){
-    
+
     UIL.Proto.call( this, o );
 
     //this.type = 'title';
@@ -1666,7 +1666,7 @@ UIL.Title = function( o ){
         this.c[2].style.top = 8 + 'px';
 
     }
-    
+
     //var idt = id || 0;
     //if(id<10) idt = '0'+id;
 
@@ -1755,10 +1755,10 @@ UIL.String.prototype.focus = function( e ){
 };
 
 UIL.String.prototype.keydown = function( e ){
-    
+
     e.stopPropagation();
 
-    if( e.keyCode === 13 ){ 
+    if( e.keyCode === 13 ){
         e.preventDefault();
         this.value = e.target.textContent;
         e.target.blur();
@@ -1768,12 +1768,12 @@ UIL.String.prototype.keydown = function( e ){
 };
 
 UIL.String.prototype.keyup = function( e ){
-    
+
     e.stopPropagation();
 
     this.value = e.target.textContent;
     if( this.allway ) this.send();
-    
+
 };
 
 UIL.String.prototype.rSize = function(){
@@ -1805,7 +1805,7 @@ UIL.Number = function( o ){
     if( o.value !== undefined ){
         if(!isNaN(o.value)){ this.value = [o.value];}
         else if(o.value instanceof Array ){ this.value = o.value; this.isNumber=false;}
-        else if(o.value instanceof Object ){ 
+        else if(o.value instanceof Object ){
             this.value = [];
             if(o.value.x) this.value[0] = o.value.x;
             if(o.value.y) this.value[1] = o.value.y;
@@ -1824,7 +1824,7 @@ UIL.Number = function( o ){
 
     this.w = ((UIL.BW+5)/(this.length))-5;
     this.current = undefined;
-    
+
     var i = this.length;
     while(i--){
         if(this.isAngle) this.value[i] = (this.value[i] * 180 / Math.PI).toFixed( this.precision );
@@ -1836,7 +1836,7 @@ UIL.Number = function( o ){
         this.c[2+i].textContent = this.value[i];
         this.c[2+i].style.color = this.fontColor;
         //this.c[2+i].contentEditable = true;
-        this.c[2+i].events = [ 'keydown', 'keyup', 'mousedown', 'blur', 'focus' ]; //'click', 
+        this.c[2+i].events = [ 'keydown', 'keyup', 'mousedown', 'blur', 'focus' ]; //'click',
 
     }
 
@@ -1890,10 +1890,10 @@ UIL.Number.prototype.keydown = function( e ){
 };
 
 UIL.Number.prototype.keyup = function( e ){
-    
+
     e.stopPropagation();
 
-    if( this.allway ){ 
+    if( this.allway ){
         this.testValue( parseFloat(e.target.name) );
         this.validate();
     }
@@ -1916,7 +1916,7 @@ UIL.Number.prototype.focus = function( e ){
     this.isSelect = true;
     this.current = undefined;
     e.target.style.borderColor = UIL.BorderSelect;
-    
+
     //e.target.style.border = '1px solid ' + UIL.BorderSelect;
     if(this.isDrag) e.target.style.cursor = 'auto';
 
@@ -1928,7 +1928,7 @@ UIL.Number.prototype.down = function( e ){
 
     e.preventDefault();
 
-    
+
 
     //e.target.style.border = '1px solid rgba(255,255,255,0.2)';
     this.current = parseFloat(e.target.name);
@@ -1953,9 +1953,9 @@ UIL.Number.prototype.up = function( e ){
     document.removeEventListener( 'mouseup', this, false );
     if(this.isDrag) document.removeEventListener( 'mousemove', this, false );
 
-    if(this.current !== undefined){ 
+    if(this.current !== undefined){
 
-        if( this.current === parseFloat(e.target.name) ){ 
+        if( this.current === parseFloat(e.target.name) ){
             e.target.contentEditable = true;
             e.target.focus();
         }
@@ -1966,7 +1966,7 @@ UIL.Number.prototype.up = function( e ){
         //this.c[2+this.current].style.cursor = 'move';
     }
 
-    
+
 
 };
 
@@ -1995,7 +1995,7 @@ UIL.Number.prototype.move = function( e ){
 
 UIL.Number.prototype.testValue = function( n ){
 
-    if(!isNaN( this.c[2+n].textContent )){ 
+    if(!isNaN( this.c[2+n].textContent )){
         var nx = this.numValue( this.c[2+n].textContent );
         this.c[2+n].textContent = nx;
         this.value[n] = nx;
@@ -2029,7 +2029,7 @@ UIL.Number.prototype.rSize = function(){
 
 };
 UIL.Color = function( o ){
-    
+
     UIL.Proto.call( this, o );
 
     this.autoHeight = true;
@@ -2041,10 +2041,10 @@ UIL.Color = function( o ){
     // color up or down
     this.side = o.side || 'down';
     this.holdTop = 0;
-    
+
     this.wheelWidth = this.width*0.1;
     this.decal = this.h + 2;
-    
+
     this.radius = (this.width - this.wheelWidth) * 0.5 - 1;
     this.square = Math.floor((this.radius - this.wheelWidth * 0.5) * 0.7) - 1;
     this.mid = Math.floor(this.width * 0.5 );
@@ -2183,7 +2183,7 @@ UIL.Color.prototype.show = function(){
     this.h = this.width + this.baseH + 10;
     this.s[0].height = this.h+'px';
 
-    if(this.side=='up'){ 
+    if(this.side=='up'){
         this.holdTop = this.s[0].top.substring(0,this.s[0].top.length-2) * 1 || 'auto';
         if(!isNaN(this.holdTop)) this.s[0].top = (this.holdTop-(this.h-20))+'px';
         setTimeout(function(){this.s[5].pointerEvents = 'auto';}.bind(this), 100);
@@ -2205,7 +2205,7 @@ UIL.Color.prototype.hide = function(){
 
     this.isShow = false;
     this.h = this.baseH;
-    if(this.side === 'up'){ 
+    if(this.side === 'up'){
         if(!isNaN(this.holdTop)) this.s[0].top = (this.holdTop)+'px';
         this.s[5].pointerEvents = 'none';
     }
@@ -2213,7 +2213,7 @@ UIL.Color.prototype.hide = function(){
     this.s[3].display = 'none';
     this.s[4].display = 'none';
     this.s[5].display = 'none';
-    
+
 };
 
 UIL.Color.prototype.update = function( up ){
@@ -2221,7 +2221,7 @@ UIL.Color.prototype.update = function( up ){
     this.s[3].background = UIL.rgbToHex( UIL.hslToRgb([this.hsl[0], 1, 0.5]) );
 
     this.drawMarkers();
-    
+
     this.value = this.bcolor;
 
     this.s[2].background = this.bcolor;
@@ -2317,7 +2317,7 @@ UIL.Color.prototype.drawCircle = function(){
             m.quadraticCurveTo(xm, ym, ar[2], ar[3]);
             m.stroke();
         }
-        a1 = a2 - nudge; 
+        a1 = a2 - nudge;
         color1 = color2;
         d1 = d2;
     }
@@ -2329,7 +2329,7 @@ UIL.Color.prototype.drawMarkers = function(){
     var m = this.markerSize, ra=this.radius, sz = this.width, lw = Math.ceil(m/ 4), r = m - lw + 1, c1 = this.invert ? '#fff' : '#000', c2 = this.invert ? '#000' : '#fff';
     var angle = this.hsl[0] * 6.28;
     var ar = [Math.sin(angle) * ra, -Math.cos(angle) * ra, 2 * this.square * (.5 - this.hsl[1]), 2 * this.square * (.5 - this.hsl[2]) ];
-  
+
     var circles = [
         { x: ar[2], y: ar[3], r: m, c: c1,     lw: lw },
         { x: ar[2], y: ar[3], r: r, c: c2,     lw: lw + 1 },
@@ -2382,7 +2382,7 @@ UIL.Color.prototype.rSize = function(){
     this.ctxMask.translate(this.mid, this.mid);
     this.ctxOverlay.translate(this.mid, this.mid);
 
-    if( this.isShow ){ 
+    if( this.isShow ){
         this.redraw();
         this.h = this.width+30;
         this.c[0].height = this.h + 'px';
@@ -2525,7 +2525,7 @@ UIL.Slide.prototype.up = function( e ){
     else this.mode(0);
 
     this.sendEnd();
-    
+
 };
 
 UIL.Slide.prototype.down = function( e ){
@@ -2546,7 +2546,7 @@ UIL.Slide.prototype.down = function( e ){
 UIL.Slide.prototype.move = function( e ){
 
     var n = ((( e.clientX - this.left - 3 ) / this.w ) * this.range + this.min ) - this.old;
-    if(n >= this.step || n <= this.step){ 
+    if(n >= this.step || n <= this.step){
         n = ~~ ( n / this.step );
         this.value = this.numValue( this.old + ( n * this.step ) );
         this.update( true );
@@ -2558,7 +2558,7 @@ UIL.Slide.prototype.move = function( e ){
 UIL.Slide.prototype.update = function( up ){
 
     var ww = this.w * (( this.value - this.min ) / this.range );
-   
+
     if(this.stype !== 3) this.s[5].width = ~~ ww + 'px';
     if(this.s[6]) this.s[6].left = ~~ (this.sa +ww + 3) + 'px';
     this.c[2].textContent = this.value;
@@ -2598,9 +2598,9 @@ UIL.Slide.prototype.rSize = function(){
 
 UIL.Slide.prototype.validate = function( e ){
 
-    if(!isNaN( this.c[2].textContent )){ 
-        this.value = this.numValue( this.c[2].textContent ); 
-        this.update(true); 
+    if(!isNaN( this.c[2].textContent )){
+        this.value = this.numValue( this.c[2].textContent );
+        this.update(true);
     }
     else this.c[2].textContent = this.value;
 
@@ -2627,7 +2627,7 @@ UIL.Slide.prototype.keydown = function( e ){
 };
 
 UIL.Slide.prototype.keyup = function( e ){
-    
+
     e.stopPropagation();
     if( this.allway ) this.validate();
 
@@ -2685,10 +2685,10 @@ UIL.List = function( o ){
     this.itemHeight = o.itemHeight || (this.h-3);
     this.length = this.list.length;
 
-    // force full list 
+    // force full list
     this.full = o.full || false;
     if(this.full) this.maxItem = this.length;
-    
+
     this.maxHeight = this.maxItem * (this.itemHeight+1);
     this.max = this.length * (this.itemHeight+1);
     //this.range = this.max - this.maxHeight;
@@ -2721,7 +2721,7 @@ UIL.List = function( o ){
 
     }
 
-    if( this.max > this.maxHeight ){ 
+    if( this.max > this.maxHeight ){
         this.w = this.sb-20;
         this.scroll = true;
     }
@@ -2744,7 +2744,7 @@ UIL.List = function( o ){
     }
 
     this.c[5].textContent = this.value;
-    
+
 
     this.init();
 
@@ -2901,7 +2901,7 @@ UIL.List.prototype.listShow = function(){
         this.h = this.baseH + 10 + this.max;
         this.s[6].display = 'none';
         this.c[2].removeEventListener( 'mousewheel', this, false );
-        this.c[2].removeEventListener( 'mousemove',  this, false ); 
+        this.c[2].removeEventListener( 'mousemove',  this, false );
     } else {
         this.s[6].display = 'block';
     }
@@ -2927,7 +2927,7 @@ UIL.List.prototype.listHide = function(){
     this.s[0].height = this.h + 'px';
     this.s[2].display = 'none';
     this.s[4].background = UIL.F0;
-    
+
 };
 
 // -----
@@ -3060,7 +3060,7 @@ UIL.Bool.prototype.update = function() {
         s[2].borderColor = UIL.BOOLBG;
         s[4].borderColor = UIL.Border;
     }
-        
+
 };
 UIL.Button = function( o ){
 
@@ -3175,7 +3175,7 @@ UIL.Button.prototype.fileSelect = function( file ){
     //if( ! e.target.files ) return;
 
     //var file = e.target.files[0];
-   
+
     this.c[4].type = "null";
     // console.log( this.c[4] )
 
@@ -3189,10 +3189,10 @@ UIL.Button.prototype.fileSelect = function( file ){
     else if(type === 'z') reader.readAsBinaryString( file );
     else reader.readAsText( file );
 
-    reader.onload = function(e) { 
+    reader.onload = function(e) {
         this.callback( e.target.result, fname, type );
          this.c[4].type = "file";
-        //this.send( e.target.result ); 
+        //this.send( e.target.result );
     }.bind(this);
 
 };
@@ -3224,7 +3224,7 @@ UIL.Button.prototype.rSize = function(){
     var w = this.sb;
     var d = this.sa;
 
-    if(this.isDragButton){ 
+    if(this.isDragButton){
         w = (w*0.5)-5;
 
         s[5].left = (d+w+5) + 'px';
@@ -3242,7 +3242,7 @@ UIL.Button.prototype.rSize = function(){
         s[4].width = w + 'px';
     }
 
-    
+
 
 };
 UIL.Circular = function( o ){
@@ -3257,7 +3257,7 @@ UIL.Circular = function( o ){
     this.setTypeNumber( o );
 
     this.radius = o.radius || 15;
-    
+
     this.size = (this.radius*2)+20;
 
     if(o.size !== undefined){
@@ -3384,7 +3384,7 @@ UIL.Circular.prototype.move = function( e ){
     this.r = Math.atan2( y, x ) - (Math.PI * 0.5);
     this.r = (((this.r%this.twoPi)+this.twoPi)%this.twoPi);
 
-    if( this.oldr !== null ){ 
+    if( this.oldr !== null ){
 
         var dif = this.r - this.oldr;
         this.r = Math.abs(dif) > Math.PI ? this.oldr : this.r;
@@ -3399,7 +3399,7 @@ UIL.Circular.prototype.move = function( e ){
 
     var n = ( ( this.range * value ) + this.min ) - this.old;
 
-    if(n >= this.step || n <= this.step){ 
+    if(n >= this.step || n <= this.step){
         n = ~~ ( n / this.step );
         this.value = this.numValue( this.old + ( n * this.step ) );
         this.update( true );
@@ -3430,7 +3430,7 @@ UIL.Circular.prototype.update = function( up ){
     this.percent = ( this.value - this.min ) / this.range;
     UIL.setSvg( this.c[4], 'd', this.makePath() );
     if( up ) this.send();
-    
+
 };
 UIL.Knob = function( o ){
 
@@ -3448,7 +3448,7 @@ UIL.Knob = function( o ){
     this.cirRange = this.mPI * 2;
 
     this.radius = o.radius || 15;
-    
+
     this.size = (this.radius*2)+20;
 
     if(o.size !== undefined){
@@ -3477,7 +3477,7 @@ UIL.Knob = function( o ){
     this.c[3] = UIL.DOM('UIL', 'circle', 'left:10px; top:'+this.top+'px; width:'+this.w+'px; height:'+this.height+'px;  pointer-events:auto; cursor:pointer;', { cx:this.radius, cy:this.radius, r:this.radius-4, fill:'rgba(0,0,0,0.3)' });
     this.c[4] = UIL.DOM('UIL', 'circle', 'left:10px; top:'+this.top+'px; width:'+this.w+'px; height:'+this.height+'px;', { cx:this.radius, cy:this.radius*0.5, r:3, fill:this.fontColor });
     this.c[5] = UIL.DOM('UIL', 'path', 'left:10px; top:'+this.top+'px; width:'+this.w+'px; height:'+this.height+'px;', { d:this.makeGrad(), 'stroke-width':1, stroke:UIL.SVGC });
-    
+
     UIL.DOM( null, 'circle', null, { cx:this.radius, cy:this.radius, r:this.radius*0.7, fill:this.buttonColor, 'stroke-width':1, stroke:UIL.SVGC }, this.c[3] );
 
     this.c[3].events = [ 'mouseover', 'mousedown', 'mouseout' ];
@@ -3511,7 +3511,7 @@ UIL.Knob.prototype.move = function( e ){
 
     var n = ( ( this.range * value ) + this.min ) - this.old;
 
-    if(n >= this.step || n <= this.step){ 
+    if(n >= this.step || n <= this.step){
         n = ~~ ( n / this.step );
         this.value = this.numValue( this.old + ( n * this.step ) );
         this.update( true );
@@ -3560,7 +3560,7 @@ UIL.Knob.prototype.update = function( up ){
     UIL.setSvg( this.c[4], 'transform', 'rotate('+ r +' '+this.radius+' '+this.radius+')' );
 
     if( up ) this.send();
-    
+
 };
 UIL.Joystick = function( o ){
 
@@ -3723,13 +3723,13 @@ UIL.Joystick.prototype.up = function( e ){
 
     if(this.isOver) this.mode(1);
     else this.mode(0);
-    
+
 
 };
 
 UIL.Joystick.prototype.down = function( e ){
 
-  
+
 
     this.isDown = true;
     document.addEventListener( 'mouseup', this, false );
@@ -3777,7 +3777,7 @@ UIL.Joystick.prototype.update = function(up){
         }
 
         if ( this.x.toFixed(2) === this.oldx.toFixed(2) && this.y.toFixed(2) === this.oldy.toFixed(2)){
-            
+
             this.x = 0;
             this.y = 0;
         }
