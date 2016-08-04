@@ -16,7 +16,7 @@ var UMC = UMC || ( function () {
 
     var UNS = '-o-user-select:none; -ms-user-select:none; -khtml-user-select:none; -webkit-user-select:none; -moz-user-select:none;';
     var BASIC = UNS + 'position:absolute; pointer-events:none; box-sizing:border-box; margin:0; padding:0; border:none; overflow:hidden; background:none;';
-    var TXT = BASIC + 'font-family:"Lucida Console", Monaco, monospace; font-size:11px; color:#CCC; padding:2px 10px; left:0; top:2px; height:64px; width:100px; overflow:hidden; white-space: nowrap;';
+    var TXT = BASIC + 'font-family:"Lucida Console", Monaco, monospace; font-size:11px; color:#CCC; padding:2px 10px; left:0; top:2px; height:16px; width:100px; overflow:hidden; white-space: nowrap;';
     var TXTEDITE = BASIC + TXT + 'pointer-events:auto; padding:2px 5px; outline:none; -webkit-appearance:none; -moz-appearance:none; border:1px dashed #4f4f4f; -ms-user-select:element;'
     var NUMBER =  BASIC + TXT + 'letter-spacing:-1px; padding:2px 5px;';
 
@@ -346,7 +346,7 @@ var UIL = ( function () {
     UIL.main = null;
     UIL.DEF = false;
     UIL.WIDTH = 300;
-    UIL.HEIGHT = 60;
+    UIL.HEIGHT = 20;
     //UIL.BW = 190;
     //UIL.AW = 100;
     UIL.P = 30;
@@ -354,7 +354,7 @@ var UIL = ( function () {
     UIL.UNS = '-o-user-select:none; -ms-user-select:none; -khtml-user-select:none; -webkit-user-select:none; -moz-user-select:none;';
     //UIL.US = '-o-user-select:text; -ms-user-select:text; -khtml-user-select:text; -webkit-user-select:text; -moz-user-select:text;';
     UIL.BASIC = UIL.UNS + 'position:absolute; pointer-events:none; box-sizing:border-box; margin:0; padding:0; border:none; overflow:hidden; background:none;';
-    UIL.TXT = 'font-family:"Lucida Console", Monaco, monospace; font-size:11px; color:#CCC; padding:2px 10px; left:0; top:2px; height:64px; width:100px; overflow:hidden; white-space: nowrap;';
+    UIL.TXT = 'font-family:"Lucida Console", Monaco, monospace; font-size:11px; color:#CCC; padding:2px 10px; left:0; top:2px; height:16px; width:100px; overflow:hidden; white-space: nowrap;';
 
     UIL.frag = UMC.frag;
     UIL.DOM = UMC.dom;
@@ -632,12 +632,12 @@ UIL.Gui = function( o ){
 
     o = o || {};
 
-    //this.height = o.height || 20;
-
     if( o.Tpercent !== undefined ) UIL.P = o.Tpercent;
     if( o.css === undefined ) o.css = '';
 
-    this.height = 100;
+    this.height = o.height || 20;
+    UIL.HEIGHT = this.height;
+
     this.width = o.width || UIL.WIDTH;
     UIL.WIDTH = this.width;
 
@@ -1145,7 +1145,7 @@ UIL.Proto = function( o ){
     this.s = [];
 
     //this.c[0] = UIL.DOM('UIL', 'div', 'position:relative; height:20px; float:left;');
-    this.c[0] = UIL.DOM(null, 'div', UIL.BASIC + 'position:relative; height:80px; float:left;');
+    this.c[0] = UIL.DOM(null, 'div', UIL.BASIC + 'position:relative; height:20px; float:left;');
     this.s[0] = this.c[0].style;
 
     if( this.isUI ) this.s[0].marginBottom = '1px';
@@ -2656,10 +2656,10 @@ UIL.List = function( o ){
     this.buttonColor = UIL.BUTTON;
 
     this.c[2] = UIL.DOM('UIL', 'div', 'box-sizing:content-box; border:20px solid transparent; border-bottom:10px solid transparent top:0px; height:90px; cursor:s-resize; pointer-events:auto; display:none;');
-    this.c[3] = UIL.DOM('UIL', 'div', 'border:1px solid '+UIL.Border+'; top:1px; pointer-events:auto; cursor:pointer; background:'+this.buttonColor+'; height:64px;' );
+    this.c[3] = UIL.DOM('UIL', 'div', 'border:1px solid '+UIL.Border+'; top:1px; pointer-events:auto; cursor:pointer; background:'+this.buttonColor+'; height:16px;' );
     this.c[4] = UIL.DOM('UIL', 'div', 'position:absolute; width:10px; height:10px; left:'+((this.sa+this.sb)-5)+'px; top:'+(~~(this.h*0.5)-5)+'px; background:'+ UIL.F0 );
     this.c[5] = UIL.DOM('UIL text', 'div', 'text-align:'+align+'; height:'+100+'px; line-height:'+(this.h-8)+'px;');
-    this.c[6] = UIL.DOM('UIL', 'div', 'right:14px; top:'+this.h+'px; height:64px; width:10px; pointer-events:none; background:#666; display:none;');
+    this.c[6] = UIL.DOM('UIL', 'div', 'right:14px; top:'+this.h+'px; height:16px; width:10px; pointer-events:none; background:#666; display:none;');
 
     this.c[2].name = 'list';
     this.c[3].name = 'title';
