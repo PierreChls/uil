@@ -645,7 +645,7 @@ UIL.Gui = function( o ){
     this.top = 0;
 
 
-    this.h = 0;//this.height;
+    this.h = 100;//this.height;
     this.prevY = -1;
 
     // bottom and close height
