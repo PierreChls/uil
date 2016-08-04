@@ -638,7 +638,7 @@ UIL.Gui = function( o ){
     if( o.css === undefined ) o.css = '';
 
     this.height = 100;
-    this.width = o.width || UIL.WIDTH;
+    this.width = 800;
     UIL.WIDTH = this.width;
 
     this.left = 0;
