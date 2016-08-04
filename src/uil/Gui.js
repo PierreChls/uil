@@ -9,6 +9,8 @@ UIL.Gui = function( o ){
 
     this.height = 100;
     this.width = 800;
+
+    console.log('GUI init : ', this.width, this.height)
     UIL.WIDTH = this.width;
 
     this.left = 0;
