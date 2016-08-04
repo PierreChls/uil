@@ -8,16 +8,14 @@ UIL.Gui = function( o ){
     if( o.css === undefined ) o.css = '';
 
     this.height = 100;
-    this.width = 800;
-
-    console.log('GUI init : ', this.width, this.height)
+    this.width = o.width || UIL.WIDTH;
     UIL.WIDTH = this.width;
 
     this.left = 0;
     this.top = 0;
 
 
-    this.h = 100;//this.height;
+    this.h = 100; //this.height;
     this.prevY = -1;
 
     // bottom and close height
