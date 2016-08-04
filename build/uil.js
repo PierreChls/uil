@@ -638,7 +638,7 @@ UIL.Gui = function( o ){
     if( o.css === undefined ) o.css = '';
 
     this.height = 100;
-    this.width = 800;
+    this.width = o.width || UIL.WIDTH;
     UIL.WIDTH = this.width;
 
     this.left = 0;
@@ -649,7 +649,7 @@ UIL.Gui = function( o ){
     this.prevY = -1;
 
     // bottom and close height
-    this.bh = o.bh || 20;
+    this.bh = o.bh || 100;
 
     UIL.main = this;
 
