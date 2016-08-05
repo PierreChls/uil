@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PierreChls/uil.git"
+    "url": "git+https://github.com/hugohil/uil.git"
   },
   "author": "lo-th",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PierreChls/uil/issues"
+    "url": "https://github.com/hugohil/uil/issues"
   },
-  "homepage": "https://github.com/PierreChls/uil#readme"
+  "homepage": "https://github.com/hugohil/uil#readme"
 }
